@@ -8,6 +8,6 @@ Die aktuelle Deployment-Konfiguration liegt jetzt direkt im App-Repository:
 
 Voraussetzung: Das App-Repository ist öffentlich. Docker baut das Image direkt aus dem Git-Quellcode auf dem VPS. Für diesen Weg ist kein Registry-Login erforderlich; das vorhandene GHCR-Paket bleibt privat.
 
-Die hier vorhandene `compose.yaml` entspricht der Hauptkonfiguration und bleibt für bisherige Links verfügbar. Für neue Installationen die URL aus dem App-Repository verwenden. Zugangsdaten liegen ausschließlich in `/opt/nexene-ops/.env` auf dem VPS.
+Die hier vorhandene `compose.yaml` entspricht der Hauptkonfiguration und bleibt für bisherige Links verfügbar. Für neue Installationen die URL aus dem App-Repository verwenden. Zugangsdaten in Hostingers grafischem Editor unter **Umgebung** hinterlegen. Eine separate Datei auf dem VPS ist nicht erforderlich. Bereits importierte ältere Compose-Dateien müssen entsprechend der aktuellen Vorlage aktualisiert werden.
 
 Ein späterer Wechsel des App-Repositorys auf privat verhindert weitere anonyme URL-Importe und Git-Builds. Bereits gebaute Container laufen weiter. Ein öffentliches GHCR-Paket lässt sich laut GitHub nicht wieder privat stellen; es wird für diesen Weg deshalb nicht benötigt.
