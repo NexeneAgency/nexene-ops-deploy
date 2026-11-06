@@ -1,0 +1,28 @@
+name: nexene-ops
+services:
+  ops:
+    image: ghcr.io/nexeneagency/nexene-ops-app:latest
+    pull_policy: always
+    restart: unless-stopped
+    env_file:
+      - /opt/nexene-ops/.env
+    environment:
+      NODE_ENV: production
+      DATA_DIR: /app/data
+      DEV_MAIL_LOG: "false"
+      SEED_DEMO: "false"
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ops_data:/app/data
+      - ops_backups:/app/backups
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    init: true
+volumes:
+  ops_data:
+    name: nexene_ops_data
+  ops_backups:
+    name: nexene_ops_backups
